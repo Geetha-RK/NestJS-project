@@ -87,12 +87,33 @@ Check out a few resources that may come in handy when working with NestJS:
 
 Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
 
-## Stay in touch
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
 
 ## License
 
 Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+
+## NestJS Tutorial
+
+Nest JS has three main components: Controllers, providers, and modules
+uses jest framework for testing
+- starts in main.js, listems to localhost:3000
+main.js creates the App module. It loads app modules and starts the server
+
+  --Module is decorated with @Module()  comes form @nestjs/common pacakge. --used to organize the structure of the application components.
+  --Each application has a root module, which Nest uses as a starting point to resolve the application's structure and relationships. It is recommended to have multiple modules to organize application components.
+  --Each module will connect to controllers and provider(service).
+  --cli command to create module: nest g module user   --> creates src/user/user.module.ts and updates the app.module.ts
+
+  --Controller is decorated with @Controller('path'). It handles the routes(path). It handles the request and returns the appropriate response.  
+  --Contoller has @Get() , @Post(), @Delete, @Patch route handlers.
+    
+    @Param(key?: string)	req.params / req.params[key]
+    @Body(key?: string)	req.body / req.body[key]
+    @Query(key?: string)	req.query / req.query[key]
+    @HttpCode(204) - to change the status code
+    @Redirect() -redirect to specific url in case of a status code. @Redirect('https://nestjs.com', 301)
+    
+
+  --Hanlde the logic in providers. using @Injectable() decorator. to create new service using cli: nest g s user
+
